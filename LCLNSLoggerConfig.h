@@ -33,7 +33,7 @@
 // prefix in order to avoid duplicate symbols in the global class namespace.
 #ifndef LCLNSLogger
 #define LCLNSLogger                                                            \
-    <UniquePrefix>LCLNSLogger
+    LCLNSLogger_RK
 #endif
 
 // Tell LCLNSLogger whether it should show file names.

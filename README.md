@@ -1,15 +1,13 @@
+# RKLog-NSLogger
 
+RKLog-NSLogger is a modified version of LibComponentLogging-NSLogger specifically for use with RestKit.
 
-# LibComponentLogging-NSLogger
-
-[http://0xc0.de/LibComponentLogging](http://0xc0.de/LibComponentLogging)    
-[http://github.com/aharren/LibComponentLogging-NSLogger](http://github.com/aharren/LibComponentLogging-NSLogger)
-
+Note: RKLOG_USE_NSLOGGER must be defined in order for the lcl_config_logger_RK.h included in RestKit to #import "LCLNSLogger_RK.h" instead of #import "LCLNSLog_RK.h"
 
 ## Overview
 
-LibComponentLogging-NSLogger is a logging back-end for LibComponentLogging
-which integrates the logging client from Florent Pillet's NSLogger project.
+RKLog-NSLogger is a modified version of LibComponentLogging-NSLogger specifically for use with RestKit. It integrates
+RKLog calls with the logging client from Florent Pillet's NSLogger project.
 
 See [http://github.com/fpillet/NSLogger](http://github.com/fpillet/NSLogger)
 for more details about NSLogger.
@@ -17,7 +15,10 @@ for more details about NSLogger.
 
 ## Related Repositories
 
-The following Git repositories are related to this repository: 
+The following Git repositories are related to this repository:
+
+* [http://github.com/aharren/LibComponentLogging-NSLogger](http://github.com/aharren/LibComponentLogging-NSLogger)
+  Original version of LibComponentLogging-NSLogger
 
 * [http://github.com/aharren/LibComponentLogging-Core](http://github.com/aharren/LibComponentLogging-Core):
   Core files of LibComponentLogging.

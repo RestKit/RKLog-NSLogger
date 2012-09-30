@@ -1,6 +1,6 @@
 //
 //
-// LCLNSLogger.m
+// LCLNSLogger_RK.m
 //
 //
 // Copyright (c) 2010-2011 Arne Harren <ah@0xc0.de>
@@ -23,8 +23,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "lcl.h"
-#import "LCLNSLogger.h"
+#import "lcl_RK.h"
+#import "LCLNSLogger_RK.h"
 #import "LoggerClient.h"
 
 
@@ -80,10 +80,10 @@ static Logger *_LCLNSLogger_logger = nil;
 
 // Log component identifiers, indexed by log component.
 NSString *_LCLNSLogger_identifier[] = {
-#   define  _lcl_component(_identifier, _header, _name)                        \
+#   define  _RKlcl_component(_identifier, _header, _name)                        \
     @#_identifier,
-#   include "lcl_config_components.h"
-#   undef   _lcl_component
+#   include "lcl_config_components_RK.h"
+#   undef   _RKlcl_component
 };
 
 // YES, if the file name should be shown.
@@ -96,7 +96,7 @@ static BOOL _LCLNSLogger_showLineNumber = NO;
 static BOOL _LCLNSLogger_showFunctionName = NO;
 
 
-@implementation LCLNSLogger
+@implementation LCLNSLogger_RK
 
 
 //
@@ -155,7 +155,7 @@ static BOOL _LCLNSLogger_showFunctionName = NO;
 
 
 // Writes the given log message to the log.
-+ (void)logWithComponent:(_lcl_component_t)component level:(uint32_t)level
++ (void)logWithComponent:(_RKlcl_component_t)component level:(uint32_t)level
                     path:(const char *)path_c line:(uint32_t)line
                 function:(const char *)function_c
                   format:(NSString *)format, ... {

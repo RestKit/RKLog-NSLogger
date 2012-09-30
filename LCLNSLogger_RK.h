@@ -1,6 +1,6 @@
 //
 //
-// LCLNSLogger.h
+// LCLNSLogger_RK.h
 //
 //
 // Copyright (c) 2010-2011 Arne Harren <ah@0xc0.de>
@@ -88,7 +88,7 @@
 #import "LCLNSLoggerConfig.h"
 
 
-@interface LCLNSLogger : NSObject {
+@interface LCLNSLogger_RK : NSObject {
     
 }
 
@@ -99,7 +99,7 @@
 
 
 // Writes the given log message to the log.
-+ (void)logWithComponent:(_lcl_component_t)component level:(uint32_t)level
++ (void)logWithComponent:(_RKlcl_component_t)component level:(uint32_t)level
                     path:(const char *)path line:(uint32_t)line
                 function:(const char *)function
                   format:(NSString *)format, ... __attribute__((format(__NSString__, 6, 7)));
@@ -114,30 +114,30 @@
 
 
 // ARC/non-ARC autorelease pool
-#define _lcl_logger_autoreleasepool_arc 0
+#define _RKlcl_logger_autoreleasepool_arc 0
 #if defined(__has_feature)
 #   if __has_feature(objc_arc)
-#   undef  _lcl_logger_autoreleasepool_arc
-#   define _lcl_logger_autoreleasepool_arc 1
+#   undef  _RKlcl_logger_autoreleasepool_arc
+#   define _RKlcl_logger_autoreleasepool_arc 1
 #   endif
 #endif
-#if _lcl_logger_autoreleasepool_arc
-#define _lcl_logger_autoreleasepool_begin                                      \
+#if _RKlcl_logger_autoreleasepool_arc
+#define _RKlcl_logger_autoreleasepool_begin                                      \
     @autoreleasepool {
-#define _lcl_logger_autoreleasepool_end                                        \
+#define _RKlcl_logger_autoreleasepool_end                                        \
     }
 #else
-#define _lcl_logger_autoreleasepool_begin                                      \
-    NSAutoreleasePool *_lcl_logger_autoreleasepool = [[NSAutoreleasePool alloc] init];
-#define _lcl_logger_autoreleasepool_end                                        \
-    [_lcl_logger_autoreleasepool release];
+#define _RKlcl_logger_autoreleasepool_begin                                      \
+    NSAutoreleasePool *_RKlcl_logger_autoreleasepool = [[NSAutoreleasePool alloc] init];
+#define _RKlcl_logger_autoreleasepool_end                                        \
+    [_RKlcl_logger_autoreleasepool release];
 #endif
 
 
-// Define the _lcl_logger macro which integrates LCLNSLogger as a logging
+// Define the _RKlcl_logger macro which integrates LCLNSLogger as a logging
 // back-end for LibComponentLogging.
-#define _lcl_logger(_component, _level, _format, ...) {                        \
-    _lcl_logger_autoreleasepool_begin                                          \
+#define _RKlcl_logger(_component, _level, _format, ...) {                      \
+    _RKlcl_logger_autoreleasepool_begin                                        \
     [LCLNSLogger logWithComponent:_component                                   \
                             level:_level                                       \
                              path:__FILE__                                     \
@@ -145,6 +145,6 @@
                          function:__PRETTY_FUNCTION__                          \
                            format:_format,                                     \
                                ## __VA_ARGS__];                                \
-    _lcl_logger_autoreleasepool_end                                            \
+    _RKlcl_logger_autoreleasepool_end                                          \
 }
 
